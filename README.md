@@ -1,6 +1,9 @@
 # Factom DiD Haskell client
 
-Haskell client for Decentralized Identities (DiD) on Factom blockchain.
+Haskell client for Decentralized Identities ([DiDs](https://www.w3.org/TR/did-core/)) on Factom blockchain.
+
+
+
 
 # Contributions
 Say thanks, send a tip:
