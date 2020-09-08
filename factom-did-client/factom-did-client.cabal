@@ -1,0 +1,50 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 18f8d649d840079502a903f691122dacbe8600f55182dcb5a2201493cd77ff90
+
+name:           factom-did-client
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/sigrlami/factom-did-haskell#readme>
+homepage:       https://github.com/sigrlami/factom-did-haskell#readme
+bug-reports:    https://github.com/sigrlami/factom-did-haskell/issues
+author:         Sergey Bushnyak
+maintainer:     sergey.bushnyak@sigrlami.eu
+copyright:      2020, Sergey Bushnyak
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/sigrlami/factom-did-haskell
+
+library
+  exposed-modules:
+      Lib
+      Types
+  other-modules:
+      Paths_factom_did_client
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite factom-did-haskell-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_factom_did_client
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , factom-did-client
+  default-language: Haskell2010

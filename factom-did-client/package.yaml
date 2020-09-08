@@ -1,14 +1,13 @@
-name:                factom-did-haskell
+name:                factom-did-client
 version:             0.1.0.0
 github:              "sigrlami/factom-did-haskell"
 license:             BSD3
 author:              "Sergey Bushnyak"
 maintainer:          "sergey.bushnyak@sigrlami.eu"
-copyright:           "2019, Sergey Bushnyak"
+copyright:           "2020, Sergey Bushnyak"
 
 extra-source-files:
 - README.md
-- ChangeLog.md
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
@@ -25,16 +24,16 @@ dependencies:
 library:
   source-dirs: src
 
-executables:
-  factom-did-haskell-exe:
-    main:                Main.hs
-    source-dirs:         app
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    dependencies:
-    - factom-did-haskell
+# executables:
+#   factom-did-haskell-exe:
+#     main:                Main.hs
+#     source-dirs:         app
+#     ghc-options:
+#     - -threaded
+#     - -rtsopts
+#     - -with-rtsopts=-N
+#     dependencies:
+#     - factom-did-haskell
 
 tests:
   factom-did-haskell-test:
@@ -45,4 +44,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - factom-did-haskell
+    - factom-did-client
