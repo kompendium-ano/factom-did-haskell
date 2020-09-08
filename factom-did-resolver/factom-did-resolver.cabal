@@ -1,0 +1,50 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: f2bed5730cfab2347369497a13ab4b25f06ed01fddc413393baaa46940b5bd92
+
+name:           factom-did-resolver
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/sigrlami/factom-did-haskell#readme>
+homepage:       https://github.com/kompendium-ano/factom-did-haskell#readme
+bug-reports:    https://github.com/kompendium-ano/factom-did-haskell/issues
+author:         Sergey Bushnyak
+maintainer:     sergey.bushnyak@sigrlami.eu
+copyright:      2020, Sergey Bushnyak
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/kompendium-ano/factom-did-haskell
+
+library
+  exposed-modules:
+      Lib
+      Types
+  other-modules:
+      Paths_factom_did_resolver
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite factom-did-haskell-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_factom_did_resolver
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , factom-did-resolver
+  default-language: Haskell2010

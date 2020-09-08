@@ -1,7 +1,7 @@
 name:                factom-did-client
 version:             0.1.0.0
-github:              "sigrlami/factom-did-haskell"
-license:             BSD3
+github:              "kompendium-ano/factom-did-haskell"
+license:             MIT
 author:              "Sergey Bushnyak"
 maintainer:          "sergey.bushnyak@sigrlami.eu"
 copyright:           "2020, Sergey Bushnyak"
