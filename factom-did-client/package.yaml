@@ -20,6 +20,9 @@ description:         Please see the README on GitHub at <https://github.com/sigr
 
 dependencies:
 - base >= 4.7 && < 5
+- api-rpc-factom            # library to work Factom blockchain
+- aeson
+- syb
 
 library:
   source-dirs: src
