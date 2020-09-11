@@ -1,16 +1,18 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DeriveDataTypeable        #-}
 {-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE OverloadedStrings         #-}
 
 module Types.Keys where
-import Data.Generics
-import Data.List
+import           Data.Generics
+import           Data.List
 
 -----------------------------------------------------
 
-data DIDKey =
+-- Wrapper for textual field, shows prurpose of the key
+type DIDKeyPurpose = T.Text
 
-  -- ManagementKey
-  --ECDSASecp256k1Key
-  -- Ed25519Key
-  -- RSAKey
+data DIDKey =
+  DIDKey
+    { dkAbstractKey :: AbstractKey
+    , dkPurpose     :: [DIDKeyPurpose]
+    } deriving (Eq, Show)
