@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE DuplicateRecordFields  #-}
 
 module Types where
 
@@ -28,11 +29,11 @@ data KeyType =
   deriving (Eq, Ord)
 
 instance Read KeyType where
-  readsPrec _ input =
-    case input of
-      "Ed25519VerificationKey"        -> EdDSA
-      "ECDSASecp256k1VerificationKey" -> ECDSA
-      _                               -> RSA
+  readsPrec _ str =
+    case str of
+      "Ed25519VerificationKey"        -> [(EdDSA, str)]
+      "ECDSASecp256k1VerificationKey" -> [(ECDSA, str)]
+      _                               -> [(RSA, str)]
 
 
 
@@ -47,14 +48,14 @@ data EntryType = Create
 --
 data KeyPurpose = PubKey
                 | AuthKey
-                | Unknown
+                | UnknownPurpose
 
 instance Read KeyPurpose where
-  readsPrec _ input =
-    case input of
-      "publicKey"        -> PubKey
-      "authentification" -> AuthKey
-      _                  -> Unknown
+  readsPrec _ str =
+    case str of
+      "publicKey"        -> [(PubKey, str)]
+      "authentification" -> [(AuthKey, str)]
+      _                  -> [(UnknownPurpose, str)]
 
 
 -- |
@@ -65,9 +66,9 @@ data NetworkType = MainNet
                  | Unknown
 
 instance Read NetworkType where
-  readsPrec _ input =
-    case input of
-      "mainnet" -> MainNet
-      "testnet" -> TestNet
-      "local"   -> Local
-      _         -> Unknown
+  readsPrec _ str =
+    case str of
+      "mainnet" -> [(MainNet, str)]
+      "testnet" -> [(TestNet, str)]
+      "local"   -> [(Local  , str)]
+      _         -> [(Unknown, str)]
