@@ -1,4 +1,5 @@
 # Factom DiDs implemented in Haskell
+![build](https://github.com/kompendium-ano/factom-did-haskell/workflows/build/badge.svg)
 
 - `factom-did-client`   - library provides functionality for DIDs creation
 - `factom-did-resolver` - library for re-constructing the effective DID Document
