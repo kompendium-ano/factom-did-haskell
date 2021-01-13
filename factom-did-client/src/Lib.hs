@@ -10,3 +10,7 @@ getChain = putStrLn "getChain"
 
 update :: IO ()
 update = putStrLn "update"
+
+-- addPurpose
+-- convertToSchema
+-- convertToRevIdSchema

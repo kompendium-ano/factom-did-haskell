@@ -1,14 +1,23 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DeriveDataTypeable        #-}
 {-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE OverloadedStrings         #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE DuplicateRecordFields  #-}
 
 module Types.Keys where
-import Data.Generics
-import Data.List
+import           Data.Generics
+import           Data.List
 
 -----------------------------------------------------
+
+-- Wrapper for textual field, shows prurpose of the key
+type DIDKeyPurpose = T.Text
+
+data DIDKeyInstance =
+  DIDKeyInstance
+    { dkAbstractKey :: AbstractKey
+    , dkPurpose     :: [DIDKeyPurpose]
+    } deriving (Eq, Show)
 
 -- Typeclass with common functionality reused
 -- in specialized instances
