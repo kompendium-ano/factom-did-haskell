@@ -1,5 +1,13 @@
 module Lib
-    ( someFunc
+    ( id
+    , getChain
+    , update
+    , addPurpose
+    , convertToSchema
+    , convertToRevIdSchema
+    , deactivate
+    , createMGMKey
+    , createDIDKey
     ) where
 
 id :: IO ()
@@ -11,6 +19,12 @@ getChain = putStrLn "getChain"
 update :: IO ()
 update = putStrLn "update"
 
--- addPurpose
--- convertToSchema
--- convertToRevIdSchema
+addPurpose :: IO ()
+addPurpose =
+
+convertToSchema :: IO ()
+convertToSchema =
+
+
+convertToRevIdSchema :: IO ()
+convertToRevIdSchema =
