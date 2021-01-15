@@ -23,6 +23,7 @@ dependencies:
 - api-rpc-factom            # library to work Factom blockchain
 - aeson
 - syb
+- text
 
 library:
   source-dirs: src

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 669bafb72e32ffedafa3914b1407c80a3d4bd8fa9d989d607fb1fb5ad6388d00
+-- hash: 2127389cadcc6740c83d20d2a4dbacf358746f058e50b4132ba8ff49c98ba8b2
 
 name:           factom-did-client
 version:        0.1.0.0
@@ -38,12 +38,14 @@ library
     , api-rpc-factom
     , base >=4.7 && <5
     , syb
+    , text
   default-language: Haskell2010
 
 test-suite factom-did-haskell-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      Validate
       Paths_factom_did_client
   hs-source-dirs:
       test
@@ -54,4 +56,5 @@ test-suite factom-did-haskell-test
     , base >=4.7 && <5
     , factom-did-client
     , syb
+    , text
   default-language: Haskell2010

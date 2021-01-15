@@ -1,12 +1,14 @@
 {-# LANGUAGE DeriveDataTypeable        #-}
+{-# LANGUAGE DuplicateRecordFields     #-}
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE OverloadedStrings         #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE DuplicateRecordFields  #-}
+{-# LANGUAGE TypeFamilies              #-}
 
 module Types.Keys where
+
 import           Data.Generics
 import           Data.List
+import qualified Data.Text     as T
 
 -----------------------------------------------------
 
@@ -42,17 +44,24 @@ class DIDKey a where
 
 data ApplicationKey =
   ApplicationKey
-    { pubKey :: String
-    , privKey :: String
+    { pubKey  :: T.Text
+    , privKey :: T.Text
     -- , keyType
-    }
+    } deriving(Eq, Show)
 
 data ManagementKey =
   ManagementKey
-    { pubKey :: String
-    , privKey :: String
+    { pubKey  :: T.Text
+    , privKey :: T.Text
     -- , keyType
-    }
+    } deriving(Eq, Show)
+
+data AbstractKey =
+  AbstractKey
+    { pubKey  :: T.Text
+    , privKey :: T.Text
+    -- , keyType
+    } deriving(Eq, Show)
 
 -- | Application-level key that can be used for authentication, signing, encryption, decryption, etc.
 instance DIDKey ApplicationKey where
@@ -61,6 +70,7 @@ instance DIDKey ApplicationKey where
 -- | Management-key used to sign updates for an existing DIDs
 instance DIDKey ManagementKey where
   verify _ = undefined
+
 
 -- other keys
 -- ECDSASecp256k1Key
