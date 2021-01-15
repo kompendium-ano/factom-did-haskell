@@ -8,7 +8,7 @@ packages:
 extra-deps:
 - aeson-1.4.7.1@sha256:6d8d2fd959b7122a1df9389cf4eca30420a053d67289f92cdc0dbc0dab3530ba,7098
 - base-compat-0.10.5@sha256:d49e174ed0daecd059c52d13d4f4de87b5609c81212a22adbb92431f9cd58fff,6941
-- git: git@github.com:kompendium-ano/factom-haskell-client.git
+- git: 'https://github.com/kompendium-ano/factom-haskell-client'
   commit: ba6c29e0f6bbf9e3f7eaa61923849fb9cb53adc9
 - git: 'https://github.com/sigrlami/remote-json'
   commit: 'd9e38be7955306418a3a6bc3fff8d15746f23ea0'
