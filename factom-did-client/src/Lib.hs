@@ -1,23 +1,38 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module Lib
-    ( id
-    , getChain
+    ( getChain
+    , create
     , update
+    , deactivate
     , addPurpose
     , convertToSchema
     , convertToRevIdSchema
-    , deactivate
     , createMGMKey
     , createDIDKey
     ) where
 
+import qualified Data.Text as T
+
+import           Types
+
+--------------------------------------------------------------------------------
+--
+
 id :: IO ()
 id = putStrLn "id"
 
-getChain :: IO ()
-getChain = putStrLn "getChain"
+create :: IO ()
+create = putStrLn "create-did"
 
 update :: IO ()
 update = putStrLn "update"
+
+deactivate :: IO ()
+deactivate = putStrLn "update"
+
+getChain :: IO ()
+getChain = putStrLn "getChain"
 
 addPurpose :: IO ()
 addPurpose = undefined
@@ -27,3 +42,6 @@ convertToSchema = undefined
 
 convertToRevIdSchema :: IO ()
 convertToRevIdSchema = undefined
+
+createMGMKey = undefined
+createDIDKey = undefined

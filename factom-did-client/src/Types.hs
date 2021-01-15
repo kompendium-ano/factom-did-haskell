@@ -7,6 +7,7 @@ module Types where
 
 import           Data.Generics
 import           Data.List
+import qualified Data.Text     as T
 
 import           Types.Keys
 
@@ -79,6 +80,20 @@ instance Read NetworkType where
 --------------------------------------------------------------------------------
 --
 
+data Service =
+  Service
+    { srvAlias       :: T.Text
+    -- ^ A human-readable nickname for the service endpoint. It should be unique across the services defined in the DID doc.
+    , srvType        :: T.Text
+    -- ^  Type of the service endpoint.
+    , srvEndpoint    :: T.Text
+    -- ^ A service endpoint may represent any type of service the subject wishes to advertise, including
+    , srvPriorityReq :: Maybe Int
+    -- ^ A non-negative integer showing the minimum hierarchical level a key must have in order to remove thisservice.
+    , srvCustom      :: [(T.Text, T.Text)]
+    -- ^ A dictionary containing custom fields (e.g "description": "My public social inbox").
+    } deriving (Eq, Show)
+
 -- | Enables the construction of a DID document,
 --   by facilitating the construction of management keys and DID keys and the
 --   addition of services. Allows exporting of the resulting DID object into a format suitable
@@ -87,9 +102,10 @@ instance Read NetworkType where
 --   Provides encryption functionality of private keys for the DID and their export to a string or to a JSON file
 --
 data DID =
-  { did      :: Maybe T.Text          -- ^ The decentralized identifier, a 32 byte hexadecimal string
-  , keysMGM  :: Maybe [ManagementKey] -- ^ A list of management keys
-  , keysDID  :: Maybe [DIDKey]        -- ^ A list of DID keys
-  , services :: Maybe [Service]       -- ^ A list of services
-  , version  :: T.Text                -- ^ used specification version
-  } deriving (Eq, Show)
+  DID
+    { did         :: Maybe T.Text          -- ^ The decentralized identifier, a 32 byte hexadecimal string
+    , didKeysMGM  :: Maybe [ManagementKey] -- ^ A list of management keys
+    , didKeys     :: Maybe [AbstractKey]   -- ^ A list of DID keys
+    , didServices :: Maybe [Service]       -- ^ A list of services
+    , didSpecVer  :: T.Text                -- ^ used specification version
+    } deriving (Eq, Show)
