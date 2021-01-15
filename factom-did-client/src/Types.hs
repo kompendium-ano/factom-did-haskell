@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DeriveDataTypeable        #-}
+{-# LANGUAGE DuplicateRecordFields     #-}
 {-# LANGUAGE ExistentialQuantification #-}
-{-# LANGUAGE DuplicateRecordFields  #-}
+{-# LANGUAGE OverloadedStrings         #-}
 
 module Types where
 
-import Data.Generics
-import Data.List
+import           Data.Generics
+import           Data.List
+
+import           Types.Keys
 
 --------------------------------------------------------------------------------
 
@@ -20,7 +22,7 @@ didEntrySizeLimit = 10275
 --------------------------------------------------------------------------------
 -- Representation Types
 
--- |
+-- | Identify type of cryptographic keys used
 --
 data KeyType =
     EdDSA
@@ -73,3 +75,21 @@ instance Read NetworkType where
       "testnet" -> [(TestNet, str)]
       "local"   -> [(Local  , str)]
       _         -> [(Unknown, str)]
+
+--------------------------------------------------------------------------------
+--
+
+-- | Enables the construction of a DID document,
+--   by facilitating the construction of management keys and DID keys and the
+--   addition of services. Allows exporting of the resulting DID object into a format suitable
+--   for recording on the Factom blockchain.
+--
+--   Provides encryption functionality of private keys for the DID and their export to a string or to a JSON file
+--
+data DID =
+  { did      :: Maybe T.Text          -- ^ The decentralized identifier, a 32 byte hexadecimal string
+  , keysMGM  :: Maybe [ManagementKey] -- ^ A list of management keys
+  , keysDID  :: Maybe [DIDKey]        -- ^ A list of DID keys
+  , services :: Maybe [Service]       -- ^ A list of services
+  , version  :: T.Text                -- ^ used specification version
+  } deriving (Eq, Show)

@@ -20,11 +20,10 @@ update :: IO ()
 update = putStrLn "update"
 
 addPurpose :: IO ()
-addPurpose =
+addPurpose = undefined
 
 convertToSchema :: IO ()
-convertToSchema =
-
+convertToSchema = undefined
 
 convertToRevIdSchema :: IO ()
-convertToRevIdSchema =
+convertToRevIdSchema = undefined
